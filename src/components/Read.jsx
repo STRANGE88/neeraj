@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -19,6 +19,14 @@ const Read = () => {
             })
             .catch(err => console.log(err))
     }, []);
+    const dele =(id)=>{
+        console.log("Dele"+id);
+        axios.delete("http://localhost:3005/students/"+id)
+        .then(response=>{
+            alert("Deleted")
+            window.locatiom.reload(false)
+        })
+    }
     return (
         <div>
             <Typography>WELCOME TO MY APP</Typography>
@@ -29,6 +37,8 @@ const Read = () => {
                             <TableCell >Id</TableCell>
                             <TableCell>Name</TableCell>
                             <TableCell>Grade</TableCell>
+                            <TableCell>DELECT</TableCell>
+                             <TableCell>UPDATE</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -37,6 +47,9 @@ const Read = () => {
                                 <TableCell>{value.id}</TableCell>
                                 <TableCell>{value.name}</TableCell>
                                 <TableCell>{value.grade}</TableCell>
+                                <TableCell><Button variant='contained'
+                                onClick={()=>dele(value.id)}>DELECT</Button> 
+                                </TableCell>
                             </TableRow>
                         })}
                     </TableBody>
