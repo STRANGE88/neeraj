@@ -17,7 +17,8 @@ const Navbar = () => {
          <Button color='inherit' ><Link to="/ssss"  style={{color:'white'}}>Teacher</Link>
         
          </Button>
-         <Button color='inherit' ><Link to="/read" style={{color:'white'}}>STUDENTS</Link></Button>
+         <Button color='inherit' ><Link to="/read" style={{color:'white'}}>
+          STUDENTS</Link></Button>
         </Toolbar>
           </AppBar>
        </Box>

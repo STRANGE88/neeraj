@@ -15,7 +15,8 @@ function App() {
     <Routes>
     <Route path='/read' element={<Read></Read>} />
     <Route path='/ssss' element={<Ssss></Ssss>} />
-    <Route path='/add' element={<Addst></Addst>} />
+    <Route path='/add' element={<Addst data={{id:"",name:"",grade:""}} 
+    method="post"></Addst> } />
     
     
     </Routes>

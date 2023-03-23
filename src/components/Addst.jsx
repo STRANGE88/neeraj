@@ -2,8 +2,8 @@ import { Button, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const Addst = () => {
-  var [st,setst] = useState({id:"",name:"",grade:""})
+const Addst = (props) => {
+  var [st,setst] = useState(props.data)
   const handler = (e) =>{
     const {name,value}= e.target 
     setst({...st,[name]:value})
@@ -11,14 +11,19 @@ const Addst = () => {
   }
   const saveData = () =>{
     console.log("Button clicked")
+    if (props.method==="post"){
     axios.post("  http://localhost:3005/students",st)
     .then(respones=>{
       alert("succesfully added")
     })
     .catch(error=>{
       alert("Failed")
-    })
-
+    })}
+   else if (props.method==="put"){
+    axios.put("http://localhost:3005/students/"+st.id,st)
+    .then(respones=>{
+      alert("succesfully ADD")
+    })}
   }
   return (
     <div>
